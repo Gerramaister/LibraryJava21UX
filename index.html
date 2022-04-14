@@ -11,10 +11,8 @@
 <body>
     <div id="app" >
         
-        
-        
-        
-        
+        <input type="text" v-model="searchQuery" >
+        <input class="searchButton" type="button" value="Search" v-on:click="ultimateSearchFunction" >
         
     </div>
 
@@ -22,14 +20,21 @@
     integrity="sha384-Ywv3jLPiaCWIx5BZGRoecE2vKrN4RePOKuDA+eD2rXZ1un0bPlfs3Iwj9LEmtbHr"
     crossorigin="anonymous"></script>
 <script>
+
     const app = {
         data() {
             return {
-                
+                searchQuery: '',
             }
         },
         methods: {
-        
+            async ultimateSearchFunction(){
+                console.log(this.searchQuery)
+
+                let response = await fetch('http://openlibrary.org/search.json?q=' + this.searchQuery)
+                let jsonx = await response.json()
+                    console.log(jsonx)
+            }
         },
     }
 
