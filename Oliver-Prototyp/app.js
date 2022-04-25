@@ -1,6 +1,3 @@
-
-
-
 let latestBook = ''
 let books = []
 if (localStorage.key('booksArray') !== null) {
@@ -8,22 +5,18 @@ if (localStorage.key('booksArray') !== null) {
     //console.log(books[0].docs[0].isbn[0])
 }
 
-
-
-
-
 const app = Vue.createApp({
     el: '#viewport',
     data() {
         return {
             searchQuery: '',
+            search_terms: ['Harry potter', 'Star Wars', 'Ninjago', 'Harry potter and the deathly hallows', 'MonkeyTime'],
             currentBook: "https://cdn.mos.cms.futurecdn.net/bQgcMwEnyhFu6ASuUFrtsn-970-80.jpg.webp",
         }
     },
 
     mounted() {
-        if(document.getElementById('imagelist') !== null)
-        {
+        if (document.getElementById('imagelist') !== null) {
             this.searchForBooksPictures()
         }
     },
@@ -31,8 +24,7 @@ const app = Vue.createApp({
     methods: {
         async searchForDemBooks() {
 
-            if(this.searchQuery == '')
-            {
+            if (this.searchQuery == '') {
                 throw new Error("Query is currently Empty!");
             }
 
@@ -40,7 +32,7 @@ const app = Vue.createApp({
             let jsonx = await response.json()
             console.log(jsonx.docs[0].title)
 
-            this.currentBook = "https://covers.openlibrary.org/b/isbn/" + jsonx.docs[0].isbn[0]+ "-M.jpg"
+            this.currentBook = "https://covers.openlibrary.org/b/isbn/" + jsonx.docs[0].isbn[0] + "-M.jpg"
             latestBook = jsonx
         },
 
@@ -61,10 +53,33 @@ const app = Vue.createApp({
 
         },
 
+        autocompleteMatch: function (input) {
+            if (input == '') {
+                return [];
+            }
+            var reg = new RegExp(input)
+            return this.search_terms.filter(function (term) {
+                if (term.match(reg)) {
+                    return term;
+                }
+            });
+        },
+
+        showResults: function (val) {
+            console.log(val)
+            res = document.getElementById("result");
+            res.innerHTML = '';
+            let list = '';
+            let terms = this.autocompleteMatch(val);
+            for (i = 0; i < terms.length; i++) {
+                list += '<li>' + terms[i] + '</li>';
+            }
+            res.innerHTML = '<ul>' + list + '</ul>';
+        },
+
         addToBookList() {
 
-            if(latestBook == '')
-            {
+            if (latestBook == '') {
                 throw new Error("Currently No Book Searched!");
             }
 

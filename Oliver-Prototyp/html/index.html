@@ -16,7 +16,11 @@
         <a href="booklist.html">Not Funny Monkey</a>
         <button v-on:click="searchForDemBooks">Search For Book</button>
         <button v-on:click="addToBookList">Add Book to list</button>
-        <input v-model="searchQuery" type="text">
+
+        <form autocomplete="off">
+            <input v-model="searchQuery" type="text" name="q" id="q" v-on:keyup="showResults(searchQuery)">
+            <div id="result"></div>
+        </form>
     </div>
 
     <script src="https://unpkg.com/vue@3.2.26"></script>
