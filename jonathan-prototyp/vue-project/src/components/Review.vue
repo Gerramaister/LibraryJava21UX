@@ -1,21 +1,21 @@
 <template>
-    <div class="alias">
-        Per
-    </div>
-    <div class="rating">
-        5
-    </div>
+<div class="full-review">
+    <div class="alias">{{ alias }}</div>
+    <div class="rating"> {{ rating }} </div>
     <div class="text-review">
-        Bra grepp. Skön mjuk yta. Skonsam mot underlag
+        {{ textReview }}
     </div>
+</div>
 </template>
 
 <script>
 export default {
-    
-}
+    props: ['alias', 'rating', 'textReview']
+};
 </script>
 
 <style>
-
+.full-review{
+    border: solid black 1px;
+}
 </style>
