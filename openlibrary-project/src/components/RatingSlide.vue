@@ -5,7 +5,7 @@
     <vue3-slider
       class="slider"
       v-model="value"
-      max="5"
+      :max="max"
       :color="color"
       :track-color="trackColor"
       :tooltip="tooltip"
@@ -23,6 +23,7 @@ export default {
       color: "#000000",
       trackColor: "#F1F6F8",
       tooltip: true,
+      max: 5,
     };
   },
   components: {

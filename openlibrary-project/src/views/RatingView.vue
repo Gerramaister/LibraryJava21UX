@@ -1,9 +1,9 @@
 <template>
     <h1>Lämna betyg</h1>
     <RatingSlide start="Spännande" end="Tråkig" />
-    <RatingSlide start="Spännande" end="Tråkig" />
-    <RatingSlide start="Spännande" end="Tråkig" />
-    <RatingSlide start="inte" end="Tråkiiiiig" />
+    <RatingSlide start="Upplyftande" end="Deppig" />
+    <RatingSlide start="Rolig" end="Allvarlig" />
+    <RatingSlide start="Lättläst" end="Svårläst" />
     <div class="text-input">
         <input class="text-item more-padding" v-model="name" placeholder="Namn" />
         <textarea class="text-item" v-model="comment" placeholder="Lämna kommentar..." cols="30" rows="5"></textarea>
