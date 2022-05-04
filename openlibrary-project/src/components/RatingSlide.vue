@@ -1,30 +1,35 @@
 <template>
-    <div class="slide-rating">
-        <p> Spännande </p>
-        <p> Tråkig </p>
-        <vue3-slider class="slider" v-model="value" max="5" :color= "color" :trackColor="trackColor" :tooltip="tooltip" />
-
-    </div>
+  <div class="slide-rating">
+    <p>{{ start }}</p>
+    <p>{{ end }}</p>
+    <vue3-slider
+      class="slider"
+      v-model="value"
+      max="5"
+      :color="color"
+      :track-color="trackColor"
+      :tooltip="tooltip"
+    />
+  </div>
 </template>
 
 <script>
-import slider from "vue3-slider"
+import slider from "vue3-slider";
 
 export default {
-  
   data() {
     return {
-            value: 1,
-            color: "#000000",
-            trackColor: "#F1F6F8",
-            tooltip: true,
-        }
-    },
-    components: {
-      "vue3-slider": slider,
-    },
-      props: ['start', 'end'],
-}
+      value: 1,
+      color: "#000000",
+      trackColor: "#F1F6F8",
+      tooltip: true,
+    };
+  },
+  components: {
+    "vue3-slider": slider,
+  },
+  props: ["start", "end"],
+};
 </script>
 
 <style scoped>
@@ -40,7 +45,7 @@ p {
   margin: 1em 0em 0.4em 0em;
 }
 .slider {
-  margin:  2.3em 3.1em 1em 3.1em;
+  margin: 2.3em 3.1em 1em 3.1em;
   padding: 0.2em;
 }
 </style>

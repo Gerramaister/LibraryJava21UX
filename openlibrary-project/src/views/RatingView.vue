@@ -3,7 +3,7 @@
     <RatingSlide start="Spännande" end="Tråkig" />
     <RatingSlide start="Spännande" end="Tråkig" />
     <RatingSlide start="Spännande" end="Tråkig" />
-    <RatingSlide start="Spännande" end="Tråkig" />
+    <RatingSlide start="inte" end="Tråkiiiiig" />
     <div class="text-input">
         <input class="text-item more-padding" v-model="name" placeholder="Namn" />
         <textarea class="text-item" v-model="comment" placeholder="Lämna kommentar..." cols="30" rows="5"></textarea>
