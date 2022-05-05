@@ -37,6 +37,7 @@ h1 {
     flex-direction: column;
     padding: 1rem 1rem 1rem 1rem;
     justify-content: space-around;
+    gap: 1em;
 }
 .text-item {
     margin: 0em;
