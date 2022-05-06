@@ -4,10 +4,11 @@
     <RatingSlide start="Upplyftande" end="Deppig" />
     <RatingSlide start="Rolig" end="Allvarlig" />
     <RatingSlide start="Lättläst" end="Svårläst" />
+    
     <div class="text-input">
         <input class="text-item more-padding" v-model="name" placeholder="Namn" />
         <textarea class="text-item" v-model="comment" placeholder="Lämna kommentar..." cols="30" rows="5"></textarea>
-        <button class="text-item btn-primary" >Spara</button>
+        <button class="text-item btn-primary">Spara</button>
     </div>
 </template>
 
