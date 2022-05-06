@@ -1,9 +1,7 @@
 <template>
-
-
-<div class="topbar">READY</div>
-    <router-view>        
-    </router-view>
+    <div class="topbar">READY</div>
+    
+    <router-view> </router-view>
 </template>
 
 <script>
