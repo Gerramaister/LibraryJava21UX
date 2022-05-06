@@ -1,31 +1,42 @@
 <template>
   <div class="container">
       <div class="col" id="TopBox">
-          <h4>Bottom Text</h4>
+          <h4>All Tags</h4>
       </div>
-    <div class="row justify-content-center gx-2">
+    <div class="row justify-content-center gx-2" v-for="i in genres" v-bind:key="i.id">
       <div class="col-5">
           <div>
-            <h4>Hello</h4>
-            <p>
-                Hej
-            </p>
+            <h4 @click="ClickMe(i.genre)">{{i.genre}}</h4>
         </div>
       </div>
       <div class="col-5">
         <div>
-            <h4>Hello</h4>
-            <p>
-                Hej
-            </p>
-        </div>
+            <h4 @click="ClickMe(i.genre2)">{{i.genre2}}</h4>
+        </div> 
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return ({
+
+      genres: [
+        {genre: "Horror", genre2: "Love"},
+        {genre: "Sci-fi", genre2: "Fiction"},
+        {genre: "King", genre2: "Religious"},
+        {genre: "Celebrity", genre2: "Nationalist"},
+      ]
+    })
+  },
+  methods: {
+    ClickMe : function(value) {
+      console.log(value)
+    }
+  },
+};
 </script>
 
 <style>
