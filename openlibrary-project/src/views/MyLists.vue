@@ -1,8 +1,8 @@
 <template>
   <h1>Mina Listor</h1>
   <BookList title="Mina Favoriter" genre="sci-fi"/>
-  <BookList title="Sparade böcker"/>
-  <BookList title="Svenska Kändisar"/>
+  <BookList title="Sparade böcker" genre="love"/>
+  <BookList title="Svenska Kändisar" genre="celebrity"/>
 </template>
 
 <script>

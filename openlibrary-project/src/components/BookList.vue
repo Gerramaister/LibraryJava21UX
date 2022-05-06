@@ -11,15 +11,28 @@
 export default {
   props: ["title", "genre"],
 
+  data(){
+    return {
+      BookGenre: this.genre
+    }
+  },
+
   methods: {
     create_images: function () {
-      fetch("https://openlibrary.org/subjects/sci-fi.json")
+      fetch("https://openlibrary.org/subjects/"+this.BookGenre+".json")
         .then((response) => response.json())
         .then((data) => {
+          let r = 0
+          let usednumbers = []
           for (let i = 0; i < 15; i++) {
 
             let newData = data.works
-            let r = Math.floor(Math.random() * newData.length);
+            r = Math.floor(Math.random() * newData.length);
+            if(usednumbers.includes(r))
+            {
+              //Get new value
+            }
+            usednumbers.push(r)
             console.log("r = " + r + ", max lenght is : " + newData.length)
 
             let img = document.createElement("img");
