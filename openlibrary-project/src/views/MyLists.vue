@@ -1,15 +1,15 @@
 <template>
   <h1>Mina Listor</h1>
-  <BookList title="Mina Favoriter" genre="sci-fi"/>
-  <BookList title="Sparade böcker" genre="love"/>
-  <BookList title="Svenska Kändisar" genre="celebrity"/>
+  <BookListVue title="Mina Favoriter" genre="sci-fi"/>
+  <BookListVue title="Sparade böcker" genre="love"/>
+  <BookListVue title="Svenska Kändisar" genre="celebrity"/>
 </template>
 
 <script>
-import BookList from "../components/BookList.vue";
+import BookListVue from "../components/BookListVue.vue";
 
 export default {
-components: {BookList},
+components: {BookListVue},
 };
 </script>
 
