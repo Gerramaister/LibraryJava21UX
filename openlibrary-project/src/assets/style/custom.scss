@@ -1,6 +1,9 @@
 @use 'node_modules/bootstrap/scss/bootstrap' with (
 
-
+    //Carousel customization
+    $carousel-indicator-width:           15px,
+    $carousel-indicator-height:          15px,
+    $carousel-indicator-hit-area-height: 10px,
 
 
     // Slider customization
@@ -9,7 +12,7 @@
     $form-range-thumb-border:                  1px,
     $form-range-thumb-border-radius:           0rem,
     $form-range-thumb-bg:                      #343a40,
-    $form-range-track-bg:             #343a40,
-    $form-range-track-height:         .3rem,
-    $form-range-track-border-radius:  0rem
+    $form-range-track-bg:                      #343a40,
+    $form-range-track-height:                  .3rem,
+    $form-range-track-border-radius:           0rem
 );

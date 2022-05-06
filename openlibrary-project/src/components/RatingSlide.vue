@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import slider from "vue3-slider";
 
 export default {
   data() {
@@ -19,9 +18,6 @@ export default {
       tooltip: true,
       max: 5,
     };
-  },
-  components: {
-    "vue3-slider": slider,
   },
   props: ["start", "end"],
 };
