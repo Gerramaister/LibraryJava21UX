@@ -12,11 +12,7 @@
 export default {
     data() {
         return {
-            carouselItem: 'carousel-item',
-            // labelText: '',
-            // imgSrc: '',
-            // imgAlt: '',
-            // active: ''
+            
         }
     },
     props: ["labelHead", "labelText", "imgSrc", "imgAlt", "active"],
