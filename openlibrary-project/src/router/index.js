@@ -14,5 +14,6 @@ const router = createRouter({
       }
     ]
 })
+router.addRoute({path: '/MyLists', component:() => import("../views/MyLists.vue")})
 
 export default router
