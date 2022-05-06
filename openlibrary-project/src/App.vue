@@ -1,5 +1,5 @@
 <template>
-    <div class="topbar">READY</div>
+    <router-link to="/" class="topbar"> READY </router-link>
     
     <router-view> </router-view>
 </template>
@@ -13,6 +13,8 @@
     text-align: center;
     font-size: 1.7em;
     color: yellow;
+    display: block;
+    text-decoration: none;
 }
 </style>
 
