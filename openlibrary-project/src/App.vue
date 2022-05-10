@@ -4,7 +4,7 @@
         <router-view> </router-view>
     </div>
     <nav class="navbar fixed-bottom bottom-bar">
-        <div class="container-fluid">
+        <div class="container-fluid px-4">
             <router-link to="/RatingView" class="navbar-brand">
                 <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -91,7 +91,6 @@
 .bottom-bar {
     background-color: #f28f38;
     color: #ffffff;
-    padding-top: 0rem;
 }
 
 .topbar {
