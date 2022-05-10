@@ -1,5 +1,6 @@
 <template>
-<Carousel />
+    <Carousel />
+    
     <nav>
         <router-link to="/RatingView"> Rating </router-link> <br />
         <router-link to="/MyLists"> MyLists </router-link> <br />
@@ -8,9 +9,9 @@
 </template>
 
 <script>
-import Carousel from '../components/Carousel/Carousel.vue'
+import Carousel from "../components/Carousel/Carousel.vue"
 export default {
-  components: {Carousel}
+    components: { Carousel },
 }
 </script>
 
@@ -18,4 +19,5 @@ export default {
 h1 {
     text-align: center;
 }
+
 </style>

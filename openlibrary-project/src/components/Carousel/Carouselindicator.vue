@@ -3,6 +3,7 @@
         type="button"
         data-bs-target="#carousel"
         :data-bs-slide-to= "slideTo"
+        class="rounded-indicator"
         :class= "active"
         :aria-current= "true"
         :aria-label= "slideNumber"
@@ -17,3 +18,11 @@ export default {
     props: ["slideNumber", "active", "true", "slideTo"],
 }
 </script>
+
+<style scoped>
+.rounded-indicator{
+    border-radius: 100%;
+    
+}
+
+</style>

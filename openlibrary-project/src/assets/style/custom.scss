@@ -1,9 +1,11 @@
 @use 'node_modules/bootstrap/scss/bootstrap' with (
 
     //Carousel customization
-    $carousel-indicator-width:           15px,
-    $carousel-indicator-height:          15px,
+    $carousel-indicator-width:           0.7rem,
+    $carousel-indicator-height:          0.7rem,
     $carousel-indicator-hit-area-height: 10px,
+    $carousel-indicator-active-bg:       #000000,
+    $carousel-indicator-active-opacity:  1,
 
 
     // Slider customization
