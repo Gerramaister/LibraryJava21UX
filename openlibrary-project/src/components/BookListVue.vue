@@ -27,6 +27,11 @@ export default {
 </script>
 
 <style>
+
+.BookList h1 {
+  position: static;
+}
+
 .BookList {
   padding-left: 25px;
   width: 100%;
@@ -35,6 +40,7 @@ export default {
 }
 .BookList img {
   margin: 10px;
-  width: 90px;
+  width: auto;
+  height: 150px;
 }
 </style>

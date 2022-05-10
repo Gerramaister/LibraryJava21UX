@@ -1,5 +1,5 @@
 <template>
-    <router-link to="/" class="topbar"> READY </router-link>
+    <router-link to="/" class="topbar"> Read-y </router-link>
     
     <router-view> </router-view>
 </template>
@@ -9,10 +9,10 @@
 
 <style scoped>
 .topbar {
-    background-color: blueviolet;
+    background-color: #f28f38;
     text-align: center;
     font-size: 1.7em;
-    color: yellow;
+    color: white;
     display: block;
     text-decoration: none;
 }
