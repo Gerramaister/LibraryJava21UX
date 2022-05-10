@@ -18,13 +18,5 @@ h1 {
   text-align: center;
   font-weight: normal;
 }
-.text-input {
-  display: flex;
-  padding: 1rem 1rem 1rem 1rem;
-  justify-content: space-around;
-  gap: 1em;
-}
-.text-item {
-  margin: 0em;
-}
+
 </style>

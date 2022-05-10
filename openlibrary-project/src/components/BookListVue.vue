@@ -1,53 +1,27 @@
 <template>
-  <h1>{{ title }}</h1>
+  <CreateImages ref="createImages"/>
   <div class="BookList">
-    <div class="row" ref="bookrow" style="max-width: 90px"></div>
+    <div ref="bookrow"></div>
   </div>
 </template>
 
 <script>
+import CreateImages from "../components/CreateImages.vue";
+
 export default {
   props: ["title", "genre"],
 
   data(){
     return {
-      BookGenre: this.genre
+      BookGenre: this.genre,
+      Title: this.title,
     }
   },
-
+  components: {CreateImages},
   methods: {
-    create_images: function () {
-      fetch("https://openlibrary.org/subjects/"+this.BookGenre+".json")
-        .then((response) => response.json())
-        .then((data) => {
-          let r = 0
-          let usednumbers = []
-          for (let i = 0; i < 15; i++) {
-
-            let newData = data.works
-            r = Math.floor(Math.random() * newData.length);
-            if(usednumbers.includes(r))
-            {
-              //Get new value
-            }
-            usednumbers.push(r)
-            console.log("r = " + r + ", max lenght is : " + newData.length)
-
-            let img = document.createElement("img");
-            img.src =
-              "https://covers.openlibrary.org/b/id/" +
-              newData[r].cover_id +
-              "-M.jpg";
-            console.log(img.src);
-            img.alt = "BookCover";
-            img.classList.add("images");
-            this.$refs.bookrow.appendChild(img);
-          }
-        });
-    },
   },
   mounted() {
-    this.create_images();
+    this.$refs.createImages.create_images(this.$refs.bookrow, this.BookGenre, this.Title);
   },
 };
 </script>

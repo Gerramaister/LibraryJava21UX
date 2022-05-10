@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <CreateImages ref="createImages"/>
+  <div class="container" ref="bookrow">
       <div class="col" id="TopBox">
           <h4>All Tags</h4>
       </div>
@@ -19,6 +20,7 @@
 </template>
 
 <script>
+import CreateImages from "../components/CreateImages.vue";
 export default {
   data() {
     return ({
@@ -33,9 +35,10 @@ export default {
   },
   methods: {
     ClickMe : function(value) {
-      console.log(value)
+      this.$refs.createImages.create_images(this.$refs.bookrow, value.toLowerCase(), '');
     }
   },
+  components: {CreateImages},
 };
 </script>
 
@@ -60,5 +63,10 @@ export default {
     text-align: center;
     padding: 15px;
     border:solid 2px black
+}
+.container img
+{
+    margin: 10px;
+  width: 90px;
 }
 </style>
