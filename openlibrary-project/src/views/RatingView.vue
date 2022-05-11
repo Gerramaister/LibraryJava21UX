@@ -8,7 +8,7 @@
     <div class="text-input">
         <input class="text-item more-padding" v-model="name" placeholder="Namn" />
         <textarea class="text-item" v-model="comment" placeholder="Lämna kommentar..." cols="30" rows="5"></textarea>
-        <button class="text-item button p-2 btn-primary">SPARA</button>
+        <button class="text-item button p-2 btn-primary" @click="this.$router.push('/')">SPARA</button>
     </div>
     <Reviews />
 </template>
