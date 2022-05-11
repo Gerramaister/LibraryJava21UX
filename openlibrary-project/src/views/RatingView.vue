@@ -10,10 +10,14 @@
         <textarea class="text-item" v-model="comment" placeholder="Lämna kommentar..." cols="30" rows="5"></textarea>
         <button class="text-item btn-primary">Spara</button>
     </div>
+    <OneReview username="Kalle" comments="En bra kommentar" imgSrc="https://picsum.photos/200"/>
+    <OneReview username="Bosse" comments="En bra kommentar skapad av Bosse" imgSrc="https://picsum.photos/201"/>
+    <OneReview username="Nisse" comments="En dålig kommentar" imgSrc="https://picsum.photos/202"/>
 </template>
 
 <script>
 import RatingSlide from "../components/RatingSlide.vue"
+import OneReview from "../components/OneReview.vue"
 
 export default {
     data() {
@@ -23,7 +27,7 @@ export default {
         }
     },
     components: {
-        RatingSlide,
+        RatingSlide, OneReview
     },
 }
 </script>
