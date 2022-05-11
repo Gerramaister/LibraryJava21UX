@@ -1,5 +1,7 @@
 @use 'node_modules/bootstrap/scss/bootstrap' with (
 
+    $primary:                            #5E778C,
+
     //Carousel customization
     $carousel-indicator-width:           0.7rem,
     $carousel-indicator-height:          0.7rem,
