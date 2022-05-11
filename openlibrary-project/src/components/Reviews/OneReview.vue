@@ -2,12 +2,13 @@
     <div class="oneReview">
         <img class="profileImg p-2" :src= "imgSrc" alt="placeholder img" />
         <div class="text container">
-            <p class="username mb-1">@ {{ username }}</p>
+            <p class="username mb-1 mt-1">@ {{ username }}</p>
             <p class="comment">
                 {{ comments }}
             </p>
         </div>
     </div>
+    <div class="p-2"></div>
 </template>
 
 <script>
@@ -18,8 +19,6 @@ export default {
 
 <style scoped>
 .username {
-    width: 93px;
-    height: 19px;
     font-family: "Work Sans";
     font-style: normal;
     font-weight: 600;
@@ -28,8 +27,6 @@ export default {
 }
 
 .comment {
-    width: 273px;
-    height: 48px;
 
     font-family: "Work Sans";
     font-style: normal;
