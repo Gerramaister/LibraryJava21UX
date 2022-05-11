@@ -59,7 +59,7 @@
                     />
                 </svg>
             </router-link>
-            <router-link to="/RatingView" class="navbar-brand">
+            <router-link to="/MapView" class="navbar-brand">
                 <svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         fill-rule="evenodd"
