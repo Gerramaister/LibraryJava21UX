@@ -1,10 +1,18 @@
 <template>
-  <l-map ref="map" v-model:zoom="zoom" :center="[57.70525, 11.935717]" style="height:45vh">
+  <l-map ref="map" v-model:zoom="zoom" :center="center" style="height:45vh">
       <l-tile-layer
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       layer-type="base"
       name="OpenStreetMap"></l-tile-layer>
-       <l-marker :lat-lng="[57.70525, 11.935717]">
+       <l-marker :lat-lng="yourCor">
+        <l-tooltip :options="{ permanent: true}">
+          Du är här!
+        </l-tooltip>
+      </l-marker>
+           <l-marker :lat-lng="library">
+        <l-tooltip :options="{ permanent: true}">
+          Älvstrandens bibliotek
+        </l-tooltip>
       </l-marker>
   </l-map>
 </template>
@@ -13,7 +21,7 @@
 // DON'T load Leaflet components here!
 // Its CSS is needed though, if not imported elsewhere in your application.
 import "leaflet/dist/leaflet.css"
-import { LMap, LGeoJson, LTileLayer, LMarker } from "@vue-leaflet/vue-leaflet";
+import { LMap, LGeoJson, LTileLayer, LMarker, LTooltip, } from "@vue-leaflet/vue-leaflet";
 
 export default {
   components: {
@@ -21,9 +29,13 @@ export default {
     LGeoJson,
     LTileLayer,
     LMarker,
+    LTooltip,
   },
   data() {
     return {
+      yourCor: [57.70525, 11.935717],
+      library: [57.70506, 11.937764],
+      center: [57.70525, 11.935717],
       zoom: 17,
       geojson: {
         type: "FeatureCollection",
