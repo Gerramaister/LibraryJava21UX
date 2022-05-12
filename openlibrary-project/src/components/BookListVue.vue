@@ -1,12 +1,11 @@
 <template>
-  <CreateImages ref="createImages"/>
   <div class="BookList">
     <div ref="bookrow"></div>
   </div>
 </template>
 
 <script>
-import CreateImages from "../components/CreateImages.vue";
+import {create_images} from '../assets/Modules/CreateImages.js'
 
 export default {
   props: ["title", "genre"],
@@ -17,11 +16,10 @@ export default {
       Title: this.title,
     }
   },
-  components: {CreateImages},
   methods: {
   },
   mounted() {
-    this.$refs.createImages.create_images(this.$refs.bookrow, this.BookGenre, this.Title);
+    create_images(this.$refs.bookrow, this.BookGenre, this.Title);
   },
 };
 </script>
