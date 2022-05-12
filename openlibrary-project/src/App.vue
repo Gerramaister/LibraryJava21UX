@@ -1,8 +1,6 @@
 <template>
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Nunito Sans">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Radley">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito Sans" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Radley" />
 
     <router-link to="/" class="topbar"> read-y </router-link>
     <div class="container padding-bottom">

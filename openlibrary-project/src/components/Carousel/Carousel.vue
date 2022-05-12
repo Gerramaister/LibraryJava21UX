@@ -29,7 +29,7 @@
                         active="active"
             -->
 
-            <Carouselitem class="item-padding" active="active" labelHead="Test1" labelText="text1" imgSrc="http://via.placeholder.com/640x360" imgAlt="first img"/>
+            <Carouselitem class="item-padding" active="active" labelHead="Alla kategorier" labelText="text1" imgSrc="http://via.placeholder.com/640x360" imgAlt="first img"/>
             <Carouselitem class="item-padding" labelHead="Test2" labelText="text2" imgSrc="https://www.fillmurray.com/640/360" imgAlt="second img"/>
             <Carouselitem class="item-padding" labelHead="Test3" labelText="text3" imgSrc="https://placekitten.com/640/360" imgAlt="third img"/>
             <Carouselitem class="item-padding" labelHead="Test4" labelText="text4" imgSrc="https://placekitten.com/640/360" imgAlt="forth img"/>
