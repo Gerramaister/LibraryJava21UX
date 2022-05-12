@@ -6,7 +6,7 @@
     <RatingSlide start="Lättläst" end="Svårläst" />
 
     <div class="text-input">
-        <input class="text-item more-padding" v-model="name" placeholder="Namn" />
+        <input class="text-item more-padding" v-model="username" placeholder="Namn" />
         <textarea class="text-item" v-model="comment" placeholder="Lämna kommentar..." cols="30" rows="5"></textarea>
         <button class="text-item button p-2 btn-primary" @click="this.$router.push('/BookInfoView')">SPARA</button>
     </div>
@@ -18,7 +18,7 @@ import RatingSlide from "../components/RatingSlide.vue"
 export default {
     data() {
         return {
-            name: "",
+            username: "",
             comment: "",
         }
     },
