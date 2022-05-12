@@ -37,6 +37,12 @@ const router = createRouter({
             component: () =>
                 import ('../views/MapView.vue')
         },
+        {
+            path: '/BookInfoView',
+            name: 'BookInfoView',
+            component: () =>
+                import ('../views/BookInfoView.vue')
+        },
     ]
 })
 router.addRoute({

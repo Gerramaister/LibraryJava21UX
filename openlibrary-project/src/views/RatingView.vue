@@ -8,14 +8,12 @@
     <div class="text-input">
         <input class="text-item more-padding" v-model="name" placeholder="Namn" />
         <textarea class="text-item" v-model="comment" placeholder="Lämna kommentar..." cols="30" rows="5"></textarea>
-        <button class="text-item button p-2 btn-primary" @click="this.$router.push('/')">SPARA</button>
+        <button class="text-item button p-2 btn-primary" @click="this.$router.push('/BookInfoView')">SPARA</button>
     </div>
-    <Reviews />
 </template>
 
 <script>
 import RatingSlide from "../components/RatingSlide.vue"
-import Reviews from "../components/Reviews/Reviews.vue"
 
 export default {
     data() {
@@ -26,7 +24,6 @@ export default {
     },
     components: {
         RatingSlide,
-        Reviews,
     },
 }
 </script>

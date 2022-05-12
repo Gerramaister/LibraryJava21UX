@@ -23,7 +23,7 @@
         </div>
     </div>
     <nav>
-        <router-link to="/RatingView"> Rating </router-link> <br />
+        <router-link to="/BookInfoView"> Bookinfoview </router-link> <br />
         <router-link to="/MyLists"> MyLists </router-link> <br />
         <router-link to="/SearchView"> SearchView </router-link>
     </nav>
