@@ -32,6 +32,7 @@ button {
     display: flex;
     gap: 1em;
     justify-content: center;
+    padding-top: 1em;
 }
 
 .quizheader {
