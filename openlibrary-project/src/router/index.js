@@ -32,10 +32,10 @@ const router = createRouter({
                 import ('../views/SearchView.vue')
         },
         {
-            path: '/MapView',
-            name: 'MapView',
+            path: '/BookstoresView',
+            name: 'BookstoresView',
             component: () =>
-                import ('../views/MapView.vue')
+                import ('../views/BookstoresView.vue')
         },
         {
             path: '/BookInfoView',
@@ -44,10 +44,16 @@ const router = createRouter({
                 import ('../views/BookInfoView.vue')
         },
         {
-            path: '/QuizView',
+            path: '/QuizCategoryView',
             name: 'QuizView',
             component: () =>
-                import ('../views/QuizView.vue')
+                import ('../views/QuizCategoryView.vue')
+        },
+        {
+            path: '/MapView',
+            name: 'MapView',
+            component: () =>
+                import ('../views/MapView.vue')
         },
     ]
 })

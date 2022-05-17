@@ -32,7 +32,7 @@
                     />
                 </svg>
             </router-link>
-            <router-link to="/QuizView" class="navbar-brand">
+            <router-link to="/QuizCategoryView" class="navbar-brand">
                 <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M6.50002 5.25C6.91423 5.25 7.25002 5.58579 7.25002 6V7.25H8.50002C8.91423 7.25 9.25002 7.58579 9.25002 8C9.25002 8.41421 8.91423 8.75 8.50002 8.75H7.25002V10C7.25002 10.4142 6.91423 10.75 6.50001 10.75C6.0858 10.75 5.75002 10.4142 5.75002 10V8.75H4.50002C4.0858 8.75 3.75002 8.41421 3.75002 8C3.75002 7.58579 4.0858 7.25 4.50002 7.25H5.75002V6C5.75002 5.58579 6.0858 5.25 6.50002 5.25Z"
@@ -62,7 +62,7 @@
                     />
                 </svg>
             </router-link>
-            <router-link to="/MapView" class="navbar-brand">
+            <router-link to="/BookstoresView" class="navbar-brand">
                 <svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         fill-rule="evenodd"
