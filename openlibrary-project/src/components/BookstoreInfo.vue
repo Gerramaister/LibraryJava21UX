@@ -1,5 +1,4 @@
 <template>
-    
         <div class="bookstore p-3 container" @click="this.$router.push('/MapView')">
             <h5>{{bookStoreName}}</h5>
             <div class="smallpcontainer">
