@@ -26,6 +26,7 @@ export default {
     padding-bottom: 0.6em;
     padding-left: 2em;
     padding-right: 2em;
+    font-size: 0.9375em;
     display: inline;
     background: #FFFFFF;
     border: 1px solid #F2F2F2;
