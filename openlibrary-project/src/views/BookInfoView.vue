@@ -1,4 +1,5 @@
 <template>
+    <BookInfo />
     <button class="text-item button p-2 btn-primary" @click="this.$router.push('/RatingView')">Betygsätt</button>
     <div>insert diamant here</div>
     <Reviews />
@@ -6,9 +7,11 @@
 
 <script>
 import Reviews from '../components/Reviews/Reviews.vue'
+import BookInfo from '../components/BookInfo.vue'
 export default {
 components: {
     Reviews,
+    BookInfo,
 }
 }
 </script>
