@@ -7,19 +7,31 @@
 
     <div class="text-input">
         <input class="text-item more-padding" v-model="username" placeholder="Namn" />
-        <textarea class="text-item" v-model="comment" placeholder="Lämna kommentar..." cols="30" rows="5"></textarea>
-        <button class="text-item button p-2 btn-primary" @click="this.$router.push('/BookInfoView')">SPARA</button>
+        <textarea class="text-item" v-model="comments" placeholder="Lämna kommentar..." cols="30" rows="5"></textarea>
+        <button class="text-item button p-2 btn-primary" @click="postReview">SPARA</button>
     </div>
 </template>
 
 <script>
+import { mapStores } from "pinia"
+import { useReviewsStore } from "../stores/reviews.js"
 import RatingSlide from "../components/RatingSlide.vue"
 
 export default {
     data() {
         return {
             username: "",
-            comment: "",
+            comments: "",
+        }
+    },
+    computed: {
+        ...mapStores(useReviewsStore)
+    },
+    methods: {
+        postReview() {
+            this.reviewsStore.addReview(this.username, this.comments)
+            this.$router.push('/BookInfoView')
+            console.log(this.reviewsStore.reviews)
         }
     },
     components: {

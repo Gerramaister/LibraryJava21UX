@@ -1,6 +1,6 @@
 <template>
     <div class="oneReview">
-        <img class="profileImg p-2" :src= "imgSrc" alt="placeholder img" />
+        <img class="profileImg p-2" :src= "imgSrc" alt="profilepicture" v-if="imgSrc !== ''"/>
         <div class="text container">
             <p class="username mb-1 mt-1">@{{ username }}</p>
             <p class="comment">
