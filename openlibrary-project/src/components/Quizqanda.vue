@@ -6,7 +6,7 @@
             <div><img :src= "answer2"></div>
             <div><img :src= "answer3"></div>
         </div>
-        <div class="count"> {{ questioncount }}/10</div>
+        <div class="count"> {{ questioncount }}/5</div>
     </div>
 </template>
 
