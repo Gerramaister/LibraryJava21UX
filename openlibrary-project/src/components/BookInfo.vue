@@ -46,11 +46,15 @@ function displaybook(data) {
   year.innerHTML = "Published: " + publishedYear;
   bookDiv.appendChild(year)
 
+  const bookGenre = book.subject[0]
+  const genre = document.createElement("p")
+  genre.innerHTML = bookGenre;
+  bookDiv.appendChild(genre)
+
   const imgDiv = document.getElementById('imgDiv')
   const bookImg = document.createElement("img");
   bookImg.src = "https://covers.openlibrary.org/b/id/" + book.cover_i + "-M.jpg"
   imgDiv.appendChild(bookImg)
-
 
 }
 fetch('https://openlibrary.org/works/' +  book + '.json')
@@ -74,6 +78,6 @@ fetch('https://openlibrary.org/works/' +  book + '.json')
 .flex{
     display: flex;
     flex-direction: row;
-
      }
+
 </style>
