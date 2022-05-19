@@ -2,24 +2,24 @@
     <div class="quizcont container">
         <h5> {{ question }} </h5>
         <div class="answercont container">
-            <div><img :src= "answer1" @click="answer(1)" alt="Answer one"></div>
-            <div><img :src= "answer2" @click="answer(2)" alt="Answer two"></div>
-            <div><img :src= "answer3" @click="answer(3)" alt="Answer three"></div>
+            <div><img :src="answer1" @click="answer(1)" alt="Answer one"></div>
+            <div><img :src="answer2" @click="answer(2)" alt="Answer two"></div>
+            <div><img :src="answer3" @click="answer(3)" alt="Answer three"></div>
         </div>
         <div class="count"> {{ questioncount }}/5</div>
     </div>
 </template>
 
 <script>
-export default{
-    emits:['eventanswer'],
-    props:["question", "answer1", "answer2", "answer3", "questioncount"],
+export default {
+    emits: ['eventanswer'],
+    props: ["question", "answer1", "answer2", "answer3", "questioncount", "answercount"],
 
     methods: {
-    answer(Number){
-        this.$emit('eventanswer', theanswernumber)
+        answer(number) {
+            this.$emit('eventanswer', number)
+        }
     }
-}
 }
 
 
@@ -53,6 +53,6 @@ h5 {
     background-color: #F2F2F2;
     padding-bottom: 2em;
     padding-right: 1em;
-    
+
 }
 </style>
