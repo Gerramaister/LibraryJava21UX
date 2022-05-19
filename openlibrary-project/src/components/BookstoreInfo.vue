@@ -2,7 +2,7 @@
         <div class="bookstore p-3 container" @click="this.$router.push('/MapView')">
             <h5>{{bookStoreName}}</h5>
             <div class="smallpcontainer">
-            <small>{{distance}} meter</small><p> {{stock}} i lager</p>
+            <small>{{distance}} meter</small>
             </div>
             <div>ÖPPET - Stänger 18:00</div>
         </div>
@@ -11,7 +11,7 @@
 
 <script>
  export default{
-     props:["bookStoreName", "distance", "stock",]
+     props:["bookStoreName", "distance",]
  }
 </script>
 
@@ -33,11 +33,6 @@ body{
     display: flex;
     justify-content: space-between;
     padding-bottom: 1.5em;
-}
-
-p {
-    margin: 0;
-    font-weight: 600;
 }
 
 h5{

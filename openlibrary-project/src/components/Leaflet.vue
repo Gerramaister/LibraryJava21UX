@@ -20,8 +20,6 @@
 </template>
 
 <script>
-// DON'T load Leaflet components here!
-// Its CSS is needed though, if not imported elsewhere in your application.
 import "leaflet/dist/leaflet.css"
 import { LMap, LGeoJson, LTileLayer, LMarker, LTooltip, } from "@vue-leaflet/vue-leaflet";
 
