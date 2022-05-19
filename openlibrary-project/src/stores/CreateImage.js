@@ -89,6 +89,10 @@ export const useCreateImageStore = defineStore({
                                 this.NewBookCreation(data, i);
                             }
                         }
+                        else if(this.removedGenres.length <= 0 && this.addedGenres.length <= 0)
+                        {
+                            this.NewBookCreation(data, i);
+                        }
                     }
                     if (this.books.length <= 0) {
                         alert("No Books Found!");

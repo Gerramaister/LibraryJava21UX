@@ -2,7 +2,7 @@
     <div class="carousel-item" :class="active">
         <img :src="imgSrc" class="d-block w-100 edge-rounded" :alt="imgAlt" />
         <div class="carousel-caption d-md-block p-0">
-            <h5 class="head-link" @click="this.$router.push('/RatingView')">{{ labelHead }}</h5>
+            <h5 class="head-link" @click="this.$router.push('/CategoriesView')">{{ labelHead }}</h5>
             <!-- <p>{{ labelText }}</p> -->
         </div>
     </div>
