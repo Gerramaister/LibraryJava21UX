@@ -48,10 +48,9 @@ export default {
     };
   },
   async beforeMount() {
-    // HERE is where to load Leaflet components!
+    
     const { circleMarker } = await import("leaflet/dist/leaflet-src.esm");
 
-    // And now the Leaflet circleMarker function can be used by the options:
     this.geojsonOptions.pointToLayer = (feature, latLng) =>
       circleMarker(latLng, { radius: 8 });
     this.mapIsReady = true;
