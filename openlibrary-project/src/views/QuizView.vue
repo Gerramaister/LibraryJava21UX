@@ -2,8 +2,9 @@
     <div class="quizcont">
         <div class="category container"></div>
         <div class="categoryText">Fantasy</div>
-        <Quizqanda :question="question" :answer1="answer1" :answer2="answer2" :answer3="answer3"
-            :questioncount="questioncount" :answercount="answercount" @eventanswer="handleAnswer" />
+        <Quizqanda :question="questions[currentq].question" :answer1="questions[currentq].answers[0]"
+            :answer2="questions[currentq].answers[1]" :answer3="questions[currentq].answers[2]" :questionCount="questionCount"
+            @eventanswer="handleAnswer" />
         <div class="correctanswer container">
             <svg width="198" height="189" viewBox="0 0 198 189" fill="none" xmlns="http://www.w3.org/2000/svg"
                 @click="hidecorrect()">
@@ -13,7 +14,7 @@
             </svg>
             <div class="correcttext">RÄTT!</div>
         </div>
-        <div class="wronganswer">
+        <div class="wronganswer container">
             <svg width="162" height="162" viewBox="0 0 162 162" fill="none" xmlns="http://www.w3.org/2000/svg"
                 @click="hidewrong()">
                 <path
@@ -22,6 +23,7 @@
             </svg>
             <div class="wrongtext">FEL!</div>
         </div>
+        <div class="showscore">{{ score }}/5 Rätt, Bra jobbat!</div>
     </div>
 </template>
 
@@ -30,49 +32,63 @@ import Quizqanda from "../components/Quizqanda.vue";
 export default {
     data() {
         return {
-            answercount: 1,
-            questioncount: 1,
+            score: 0,
+            questionCount: 1,
             currentq: 0,
-            currenta: 0,
-            question: "I vilken bok hittar du karaktären Hercule Barfuss?",
-            answer1: "https://upload.wikimedia.org/wikipedia/en/8/84/Otori_Grass.jpg",
-            answer2: "https://external-preview.redd.it/R6hZMfoXu4kGvzRnfKVQRXDOp2BAdVriZVp3FAqUrtE.jpg?width=640&crop=smart&auto=webp&s=76648ce1a8d24c8a61acc434be5644f1a681366e",
-            answer3: "https://media.bonnierforlagen.se/bokbilder/tif/9789143500875.jpg?timestamp=20160308125307",
-            questions: [{ q: " " },
-            { q: "Vilken bok har J.K. Rowling skrivit?" },
-            { q: "Vilken bok har adapterats till en tv-serie som blev en stor succé?" },
-            { q: "Vilken bok om en drake och dennes ryttare var författaren 15 år när han skrev?" },
-            { q: "I vilken bok hittar du protagonisten Kvothe?" }],
-
-            answersone: [{ a: "https://m.media-amazon.com/images/I/71-++hbbERL._AC_SY679_.jpg" },
-            { a: "https://kbimages1-a.akamaihd.net/c0dc20a6-33e5-4436-bf23-05d49b0dfc14/1200/1200/False/fire-and-blood-the-inspiration-for-hbo-s-house-of-the-dragon-a-song-of-ice-and-fire-1.jpg" },
-            { a: "https://i.pinimg.com/originals/71/05/c1/7105c1a8165ae9040fa3e1d795dfbc40.jpg" },
-            { a: "https://www.coverdungeon.com/wp-content/uploads/2022/01/3d-bookcoverdesigner-books-bookcover-bookdesign-coverdesigner-coverdungeon-coverdungeonrabbit-book-cover-design-fantasy-dark-urban-epic-designer.jpg" },
-            { a: "https://images-na.ssl-images-amazon.com/images/I/71jJcPTGd3L.jpg" }],
-
-            answerstwo: [{ a: "https://m.media-amazon.com/images/I/71-++hbbERL._AC_SY679_.jpg" },
-            { a: "https://images-platform.99static.com//PiHWJxAcOnC7gw197YEXKtyxDXQ=/fit-in/500x500/99designs-contests-attachments/39/39493/attachment_39493946" },
-            { a: "https://external-preview.redd.it/x7uwXmql-Z9MFYuolcaDyJlni-NH5wPtUVniec6A9JY.jpg?width=640&crop=smart&auto=webp&s=8026a284ea906a4bbd4fe61340cc0b5a3cb83dcd" },
-            { a: "https://sequoyahscribe.com/wp-content/uploads/2016/02/Eragon-Alfred-A.-Knopf.jpg" },
-            { a: "https://kbimages1-a.akamaihd.net/55d6b1db-0dd7-4120-8c65-f3fb5193be37/353/569/90/False/introducing-the-witcher.jpg" }],
-
-            answersthree: [{ a: "https://m.media-amazon.com/images/I/71-++hbbERL._AC_SY679_.jpg" },
-            { a: "https://m.media-amazon.com/images/I/71-++hbbERL._AC_SY679_.jpg" },
-            { a: "https://images.squarespace-cdn.com/content/v1/5202d1b3e4b099a0812c51a3/1601524801845-8POC3A8VYN9QC09KGFRG/Green-Angels.jpg" },
-            { a: "https://www.mythosink.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-20-at-6.00.42-PM.png" },
-            { a: "https://i.pinimg.com/originals/7d/a0/8e/7da08e69a6af9cffbbf59f32f80163e2.jpg" }]
+            correctAnswers: [3, 3, 1, 3, 1],
+            questions: [
+                {
+                    question: "I vilken bok hittar du karaktären Hercule Barfuss?",
+                    answers: [
+                        "https://upload.wikimedia.org/wikipedia/en/8/84/Otori_Grass.jpg",
+                        "https://external-preview.redd.it/R6hZMfoXu4kGvzRnfKVQRXDOp2BAdVriZVp3FAqUrtE.jpg?width=640&crop=smart&auto=webp&s=76648ce1a8d24c8a61acc434be5644f1a681366e",
+                        "https://media.bonnierforlagen.se/bokbilder/tif/9789143500875.jpg?timestamp=20160308125307"
+                    ]
+                },
+                {
+                    question: "Vilken bok har J.K. Rowling skrivit?",
+                    answers: [
+                        "https://images-platform.99static.com//PiHWJxAcOnC7gw197YEXKtyxDXQ=/fit-in/500x500/99designs-contests-attachments/39/39493/attachment_39493946",
+                        "https://kbimages1-a.akamaihd.net/c0dc20a6-33e5-4436-bf23-05d49b0dfc14/1200/1200/False/fire-and-blood-the-inspiration-for-hbo-s-house-of-the-dragon-a-song-of-ice-and-fire-1.jpg",
+                        "https://m.media-amazon.com/images/I/71-++hbbERL._AC_SY679_.jpg"
+                    ]
+                },
+                {
+                    question: "Vilken bok har adapterats till en tv-serie som blev en stor succé?",
+                    answers: [
+                        "https://i.pinimg.com/originals/71/05/c1/7105c1a8165ae9040fa3e1d795dfbc40.jpg",
+                        "https://images-platform.99static.com//PiHWJxAcOnC7gw197YEXKtyxDXQ=/fit-in/500x500/99designs-contests-attachments/39/39493/attachment_39493946",
+                        "https://images.squarespace-cdn.com/content/v1/5202d1b3e4b099a0812c51a3/1601524801845-8POC3A8VYN9QC09KGFRG/Green-Angels.jpg"
+                    ]
+                },
+                {
+                    question: "Vilken bok om en drake och dennes ryttare var författaren 15 år när han skrev?",
+                    answers: [
+                        "https://www.coverdungeon.com/wp-content/uploads/2022/01/3d-bookcoverdesigner-books-bookcover-bookdesign-coverdesigner-coverdungeon-coverdungeonrabbit-book-cover-design-fantasy-dark-urban-epic-designer.jpg",
+                        "https://kbimages1-a.akamaihd.net/55d6b1db-0dd7-4120-8c65-f3fb5193be37/353/569/90/False/introducing-the-witcher.jpg",
+                        "https://sequoyahscribe.com/wp-content/uploads/2016/02/Eragon-Alfred-A.-Knopf.jpg"
+                    ]
+                },
+                {
+                    question: "I vilken bok hittar du protagonisten Kvothe?",
+                    answers: [
+                        "https://images-na.ssl-images-amazon.com/images/I/71jJcPTGd3L.jpg",
+                        "https://www.mythosink.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-20-at-6.00.42-PM.png",
+                        "https://external-preview.redd.it/x7uwXmql-Z9MFYuolcaDyJlni-NH5wPtUVniec6A9JY.jpg?width=640&crop=smart&auto=webp&s=8026a284ea906a4bbd4fe61340cc0b5a3cb83dcd"
+                    ]
+                }
+            ]
         }
     },
     methods: {
         forward() {
-            this.currentq += 1
-            this.currenta += 1
-            this.question = this.questions[this.currentq].q
-            this.answer1 = this.answersone[this.currenta].a
-            this.answer2 = this.answerstwo[this.currenta].a
-            this.answer3 = this.answersthree[this.currenta].a
-            this.questioncount++
-            this.answercount++
+            this.currentq ++
+            this.questionCount++
+            this.question = this.questions[this.currentq].question
+            this.answer1 = this.questions[this.currentq].answers[0]
+            this.answer2 = this.questions[this.currentq].answers[1]
+            this.answer3 = this.questions[this.currentq].answers[2]
+
         },
         showwrong() {
             document.getElementsByClassName('wronganswer')[0].style.display = 'block';
@@ -87,31 +103,22 @@ export default {
             document.getElementsByClassName('correctanswer')[0].style.display = 'none';
         },
 
+        showScore() {
+            document.getElementsByClassName('correctanswer')[0].style.display = 'block';
+        },
+
         handleAnswer(number) {
-            if (this.currentq === 0 || this.currentq === 1) {
-                if (number === 3) {
-                    this.forward()
-                    this.showcorrect()
-                }
-                else {
-                    this.showwrong()
-                    this.forward()
-                }
+            if (this.correctAnswers[this.currentq] === number) {
+                this.forward()
+                this.showcorrect()
+                this.score++
             }
-            if (this.currentq === 2 || this.currentq === 3) {
-                if (number === 2) {
-                    this.forward()
-                    this.showcorrect()
-                }
-                else {
-                    this.showwrong()
-                    this.forward()
-                }
+            else {
+                this.showwrong()
+                this.forward()
             }
-            if (this.currentq === 4) {
-                if (number === 1) {
-                    this.showcorrect()
-                }
+            if(this.questionCount >= 5 && this.correctAnswers[this.currentq] === number) {
+                this.showScore()
             }
         },
     },
@@ -122,6 +129,10 @@ export default {
 </script>
 
 <style scoped>
+
+.showscore {
+    display: none;
+}
 .correcttext {
     position: absolute;
     text-align: center;
@@ -135,7 +146,7 @@ export default {
 .wrongtext {
     position: absolute;
     text-align: center;
-    left: 3.5em;
+    left: 3.9em;
     top: 3.5em;
     color: #FFFFFF;
     font-size: 1.2em;
@@ -147,13 +158,14 @@ export default {
     position: absolute;
     left: 4.9em;
     top: 17.6em;
+    justify-content: center;
 }
 
 .wronganswer {
     display: none;
     position: absolute;
-    left: 7.5em;
-    top: 17.6em;
+    left: 6em;
+    top: 19em;
 }
 
 .nextq {

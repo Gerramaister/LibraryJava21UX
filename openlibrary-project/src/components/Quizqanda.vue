@@ -6,14 +6,14 @@
             <div><img :src="answer2" @click="answer(2)" alt="Answer two"></div>
             <div><img :src="answer3" @click="answer(3)" alt="Answer three"></div>
         </div>
-        <div class="count"> {{ questioncount }}/5</div>
+        <div class="count"> {{ questionCount }}/5</div>
     </div>
 </template>
 
 <script>
 export default {
     emits: ['eventanswer'],
-    props: ["question", "answer1", "answer2", "answer3", "questioncount", "answercount"],
+    props: ["question", "answer1", "answer2", "answer3", "questionCount"],
 
     methods: {
         answer(number) {
@@ -21,8 +21,6 @@ export default {
         }
     }
 }
-
-
 </script>
 
 <style scoped>
