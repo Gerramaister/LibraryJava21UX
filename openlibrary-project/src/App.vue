@@ -6,9 +6,16 @@
     <div class="container padding-bottom">
         <router-view> </router-view>
     </div>
+    <div class="container-fluid px-0 fixed-bottom">
+        <div class="collapse" id="collapseExample">
+            <SearchBar/>
+            <DropUpBar/>
+        </div>
+    </div>
+
     <nav class="navbar fixed-bottom bottom-bar">
         <div class="container-fluid px-4">
-            <router-link to="/RatingView" class="navbar-brand">
+            <button class="btn" style="background-color-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         fill-rule="evenodd"
@@ -17,7 +24,8 @@
                         fill="white"
                     />
                 </svg>
-            </router-link>
+            </button>
+
             <router-link to="/MyLists" class="navbar-brand">
                 <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -84,9 +92,16 @@
             </router-link>
         </div>
     </nav>
+
 </template>
 
 <script>
+import DropUpBar from "./components/DropUpBar.vue";
+import SearchBar from "./components/SearchBar.vue";
+
+export default {
+components: {DropUpBar, SearchBar},
+};
 </script>
 
 <style scoped>
@@ -113,6 +128,10 @@
 }
 .padding-bottom {
     padding-bottom: 5rem;
+}
+.collapse {
+        border-radius: 20px 20px 0px 0px;
+      box-shadow: 0 0 0 99999px rgba(0, 0, 0, .5);
 }
 </style>
 
