@@ -107,7 +107,7 @@ components: {DropUpBar, SearchBar},
 <style scoped>
 .topbar,
 .bottom-bar {
-    background-color: #f28f38;
+    background-color: #D98031;
     color: #ffffff;
 }
 
