@@ -61,17 +61,13 @@ const router = createRouter({
             component: () =>
                 import ('../views/QuizView.vue')
         },
+        {
+            path: '/CategoriesView',
+            name: 'Categories',
+            component: () => 
+                import ('../views/CategoriesView.vue')
+        }
+        
     ]
 })
-router.addRoute({
-    path: '/MyLists',
-    component: () =>
-        import ("../views/MyLists.vue")
-})
-router.addRoute({
-    path: '/SearchView',
-    component: () =>
-        import ("../views/SearchView.vue")
-})
-
 export default router
