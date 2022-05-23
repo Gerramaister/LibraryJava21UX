@@ -3,9 +3,9 @@
         <div class="category container"></div>
         <div class="categoryText">Fantasy</div>
         <Quizqanda :question="questions[currentq].question" :answer1="questions[currentq].answers[0]"
-            :answer2="questions[currentq].answers[1]" :answer3="questions[currentq].answers[2]" :questionCount="questionCount"
-            @eventanswer="handleAnswer" />
-        <div class="correctanswer container">
+            :answer2="questions[currentq].answers[1]" :answer3="questions[currentq].answers[2]"
+            :questionCount="questionCount" @eventanswer="handleAnswer" />
+        <div v-show = "visiblecorrect" class="correctanswer container">
             <svg width="198" height="189" viewBox="0 0 198 189" fill="none" xmlns="http://www.w3.org/2000/svg"
                 @click="hidecorrect()">
                 <path
@@ -14,7 +14,7 @@
             </svg>
             <div class="correcttext">RÄTT!</div>
         </div>
-        <div class="wronganswer container">
+        <div v-show = "visiblewrong" class="wronganswer container">
             <svg width="162" height="162" viewBox="0 0 162 162" fill="none" xmlns="http://www.w3.org/2000/svg"
                 @click="hidewrong()">
                 <path
@@ -23,7 +23,7 @@
             </svg>
             <div class="wrongtext">FEL!</div>
         </div>
-        <div class="showscore">{{ score }}/5 Rätt, Bra jobbat!</div>
+        <div v-show = "visiblescore" class="showscore" @click="hidescore()">{{ score }}/5 Rätt, Bra jobbat!</div>
     </div>
 </template>
 
@@ -32,10 +32,13 @@ import Quizqanda from "../components/Quizqanda.vue";
 export default {
     data() {
         return {
+            visiblecorrect: false,
+            visiblewrong: false,
+            visiblescore: false,
             score: 0,
             questionCount: 1,
             currentq: 0,
-            correctAnswers: [3, 3, 1, 3, 1],
+            correctAnswers: [3, 3, 1, 2, 1],
             questions: [
                 {
                     question: "I vilken bok hittar du karaktären Hercule Barfuss?",
@@ -65,8 +68,8 @@ export default {
                     question: "Vilken bok om en drake och dennes ryttare var författaren 15 år när han skrev?",
                     answers: [
                         "https://www.coverdungeon.com/wp-content/uploads/2022/01/3d-bookcoverdesigner-books-bookcover-bookdesign-coverdesigner-coverdungeon-coverdungeonrabbit-book-cover-design-fantasy-dark-urban-epic-designer.jpg",
-                        "https://kbimages1-a.akamaihd.net/55d6b1db-0dd7-4120-8c65-f3fb5193be37/353/569/90/False/introducing-the-witcher.jpg",
-                        "https://sequoyahscribe.com/wp-content/uploads/2016/02/Eragon-Alfred-A.-Knopf.jpg"
+                        "https://sequoyahscribe.com/wp-content/uploads/2016/02/Eragon-Alfred-A.-Knopf.jpg",
+                        "https://kbimages1-a.akamaihd.net/55d6b1db-0dd7-4120-8c65-f3fb5193be37/353/569/90/False/introducing-the-witcher.jpg"
                     ]
                 },
                 {
@@ -76,13 +79,14 @@ export default {
                         "https://www.mythosink.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-20-at-6.00.42-PM.png",
                         "https://external-preview.redd.it/x7uwXmql-Z9MFYuolcaDyJlni-NH5wPtUVniec6A9JY.jpg?width=640&crop=smart&auto=webp&s=8026a284ea906a4bbd4fe61340cc0b5a3cb83dcd"
                     ]
-                }
+                },
+
             ]
         }
     },
     methods: {
         forward() {
-            this.currentq ++
+            this.currentq++
             this.questionCount++
             this.question = this.questions[this.currentq].question
             this.answer1 = this.questions[this.currentq].answers[0]
@@ -91,48 +95,56 @@ export default {
 
         },
         showwrong() {
-            document.getElementsByClassName('wronganswer')[0].style.display = 'block';
+            this.visiblewrong = true
         },
         hidewrong() {
-            document.getElementsByClassName('wronganswer')[0].style.display = 'none';
+            this.visiblewrong = false
         },
         showcorrect() {
-            document.getElementsByClassName('correctanswer')[0].style.display = 'block';
+            this.visiblecorrect = true
         },
         hidecorrect() {
-            document.getElementsByClassName('correctanswer')[0].style.display = 'none';
+            this.visiblecorrect = false
         },
-
         showScore() {
-            document.getElementsByClassName('correctanswer')[0].style.display = 'block';
+            this.visiblescore = true
+        },
+        hidescore() {
+            this.visiblescore = false
         },
 
         handleAnswer(number) {
             if (this.correctAnswers[this.currentq] === number) {
-                this.forward()
                 this.showcorrect()
                 this.score++
             }
             else {
                 this.showwrong()
-                this.forward()
+                
             }
-            if(this.questionCount >= 5 && this.correctAnswers[this.currentq] === number) {
-                this.showScore()
+
+            if (this.questionCount === this.questions.length) {
+                this.showScore() 
+            }
+            else  {
+                this.forward()
             }
         },
     },
     components: {
         Quizqanda
-    }
+    },
 }
 </script>
 
 <style scoped>
-
 .showscore {
-    display: none;
+    margin-top: 1em;
+    font-weight: 600;
+    text-align: center;
+    font-size: large;
 }
+
 .correcttext {
     position: absolute;
     text-align: center;
@@ -150,11 +162,9 @@ export default {
     top: 3.5em;
     color: #FFFFFF;
     font-size: 1.2em;
-
 }
 
 .correctanswer {
-    display: none;
     position: absolute;
     left: 4.9em;
     top: 17.6em;
@@ -162,15 +172,10 @@ export default {
 }
 
 .wronganswer {
-    display: none;
+    
     position: absolute;
     left: 6em;
     top: 19em;
-}
-
-.nextq {
-    margin-top: 1em;
-    margin-left: 17.5em;
 }
 
 .category {
