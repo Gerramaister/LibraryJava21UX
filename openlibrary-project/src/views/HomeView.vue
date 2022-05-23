@@ -8,16 +8,16 @@
     <div class="container">
         <div class="row row-cols-2">
             <div class="col p-2">
-                <div class="border img-radius overflow-hidden"> <img class="w-100" src="https://loremflickr.com/640/360" alt=""> </div>
+                <div class="border img-radius overflow-hidden"> <img class="w-100" src="../../src/assets/Images/HomeView/richBoy.png" alt=""> </div>
             </div>
             <div class="col p-2">
-                <div class="border img-radius overflow-hidden"> <img class="w-100" src="https://www.placecage.com/640/360" alt=""> </div>
+                <div class="border img-radius overflow-hidden"> <img class="w-100" src="../../src/assets/Images/HomeView/brottOchStraff.png" alt=""> </div>
             </div>
             <div class="col p-2">
-                <div class="border img-radius overflow-hidden"> <img class="w-100" src="https://placebear.com/640/360" alt=""> </div>
+                <div class="border img-radius overflow-hidden"> <img class="w-100" src="../../src/assets/Images/HomeView/haruki.png" alt=""> </div>
             </div>
             <div class="col p-2">
-                <div class="border img-radius overflow-hidden"> <img class="w-100" src="https://www.stevensegallery.com/640/360" alt=""> </div>
+                <div class="border img-radius overflow-hidden"> <img class="w-100" src="../../src/assets/Images/HomeView/Nora.png" alt=""> </div>
             </div>
             
         </div>
