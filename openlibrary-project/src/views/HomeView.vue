@@ -24,8 +24,6 @@
     </div>
     <nav>
         <router-link to="/BookInfoView"> Bookinfoview </router-link> <br />
-        <router-link to="/MyLists"> MyLists </router-link> <br />
-        <router-link to="/CategoriesView"> CategoriesView </router-link>
     </nav>
 </template>
 
