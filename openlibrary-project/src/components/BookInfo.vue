@@ -56,7 +56,7 @@ function displaybook(data) {
   image.appendChild(bookImg)
  
 }
-fetch('https://openlibrary.org/works/' + book + '.json') //Fetch för beskrivning
+fetch('https://openlibrary.org/works/' + book + '.json') //Fetch för beskrivning.
   .then((data) => {
     if (data.ok) {
       return data.json()
