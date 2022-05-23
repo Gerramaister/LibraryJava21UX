@@ -135,6 +135,13 @@ export default {
 </script>
 
 <style scoped>
+
+@media screen and (max-width: 400px){
+    .wronganswer, .correctanswer {
+        top: 20%;
+    }
+
+}
 .showscore {
     margin-top: 1em;
     font-weight: 600;
@@ -142,33 +149,17 @@ export default {
     font-size: large;
 }
 
-.correcttext {
-    text-align: center;
-    color: #FFFFFF;
-    font-size: 1.2em;
-}
-
-.wrongtext {
-    text-align: center;
-    left: 3.9em;
-    top: 3.5em;
-    color: #FFFFFF;
-    font-size: 1.2em;
-}
-
 .correctanswer {
     text-align: center;
     position: absolute;
-    left: 4.9em;
-    top: 17.6em;
+    top: 43%;
     
 }
 
 .wronganswer {
     position: absolute;
     text-align: center;
-    left: 6em;
-    top: 19em;
+    top: 45%;
 }
 
 .category {
