@@ -29,10 +29,10 @@
                         active="active"
             -->
 
-            <Carouselitem class="item-padding" active="active" labelHead="Alla kategorier" imgSrc="../../src/assets/Images/HomeView/stackedBooks.png" imgAlt="first img"/>
-            <Carouselitem class="item-padding" labelHead="Alla kategorier" imgSrc="https://www.fillmurray.com/640/360" imgAlt="second img"/>
-            <Carouselitem class="item-padding" labelHead="Alla kategorier" imgSrc="https://placekitten.com/640/360" imgAlt="third img"/>
-            <Carouselitem class="item-padding" labelHead="Alla kategorier" imgSrc="https://placekitten.com/640/360" imgAlt="forth img"/>
+            <Carouselitem class="item-padding" active="active" labelHead="Alla kategorier" imgSrc="../../src/assets/Images/HomeView/stackedBooks.png" imgAlt="stacked books"/>
+            <Carouselitem class="item-padding" labelHead="Deckare" imgSrc="../../src/assets/Images/HomeView\61lF59FwTJL.jpg" imgAlt="second img"/>
+            <Carouselitem class="item-padding" labelHead="Barn" imgSrc="../../src/assets/Images/HomeView/alfons.jpg" imgAlt="third img"/>
+            <Carouselitem class="item-padding" labelHead="Romans" imgSrc="../../src/assets/Images/HomeView/eufori.jpg" imgAlt="forth img"/>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
