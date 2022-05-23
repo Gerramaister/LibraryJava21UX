@@ -31,6 +31,8 @@ export default {
 
 .edge-rounded {
     border-radius: 14px;
+    width: 342px;
+    height: 207px;
 }
 
 .carousel-caption {
