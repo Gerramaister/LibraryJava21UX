@@ -5,7 +5,7 @@
             <button type="button" class="btn btn-primary btn-square-md"  @click="this.$router.push('/QuizView')">Fantasy</button>
             <button type="button" class="btn btn-primary btn-square-md">Deckare</button>
             <button type="button" class="btn btn-primary btn-square-md">Feelgood</button>
-            <button type="button" class="btn btn-primary btn-square-md">Biografer</button>
+            <button type="button" class="btn btn-primary btn-square-md">Biografier</button>
             <button type="button" class="btn btn-primary btn-square-md">Barn</button>
             <button type="button" class="btn btn-primary btn-square-md">Skräck</button>
             <button type="button" class="btn btn-primary btn-square-md">Historia</button>
