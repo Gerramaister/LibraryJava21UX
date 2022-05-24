@@ -2,6 +2,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito Sans" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Radley" />
 
+    <div class="About">
+    <AboutVue />
+    </div>
     <router-link to="/" class="topbar"> read-y </router-link>
     <div class="container padding-bottom">
         <router-view> </router-view>
@@ -99,8 +102,10 @@
 import DropUpBar from "./components/DropUpBar.vue";
 import SearchBar from "./components/SearchBar.vue";
 
+import AboutVue from "./components/AboutVue.vue";
+
 export default {
-components: {DropUpBar, SearchBar},
+components: {DropUpBar, SearchBar, AboutVue},
 };
 </script>
 
@@ -121,6 +126,10 @@ components: {DropUpBar, SearchBar},
     font-weight: 400;
     font-size: 36px;
     line-height: 45px;
+}
+
+.About {
+    float: right;
 }
 
 .bottom-bar {
