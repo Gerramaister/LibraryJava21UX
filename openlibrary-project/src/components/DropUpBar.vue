@@ -28,7 +28,7 @@
             <button
               type="button"
               class="btn btn-light btn-outline-dark"
-              @click="FunnyClick($event, i.genre)"
+              @click="ButtonClassChange($event, i.genre)"
             >
               {{ i.genre }}
             </button>
@@ -39,7 +39,7 @@
             <button
               type="button"
               class="btn btn-light btn-outline-dark"
-              @click="FunnyClick($event, i.genre2)"
+              @click="ButtonClassChange($event, i.genre2)"
             >
               {{ i.genre2 }}
             </button>
@@ -48,7 +48,7 @@
       </div>
       <div class="Sök">
         <router-link to="/SearchView">
-          <button class="btn btn-primary Sök-Button" @click="ClickMe()">
+          <button class="btn btn-primary Sök-Button" @click="SearchWithInput()">
             SÖK
           </button>
         </router-link>
@@ -82,12 +82,12 @@ export default {
 
 
   methods: {
-    ClickMe() {
+    SearchWithInput() {
       console.log(this.createImageStore.currentSearch);
       this.createImageStore.FindBookWithSearch();
     },
-
-    FunnyClick(event, genres) {
+    //Send through an event to know which button is pressed so we dont have to use an annoying index
+    ButtonClassChange(event, genres) {
       if (
         !event.target.classList.contains("Active") &&
         !event.target.classList.contains("Removed")

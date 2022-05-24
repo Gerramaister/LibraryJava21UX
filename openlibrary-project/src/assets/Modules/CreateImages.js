@@ -1,26 +1,19 @@
-function create_images(whatToAppend, BookGenre, title) {
+function create_images(BookGenre, Array) {
     fetch("https://openlibrary.org/subjects/" + BookGenre + ".json")
         .then((response) => response.json())
         .then((data) => {
-            let newData = data.works;
-            let h1 = document.createElement("h1");
-            h1.innerHTML = title;
-            whatToAppend.appendChild(h1);
-            for (let i = 0; i < newData.length; i++) {
-                if (newData[i].cover_id === null) {
+            for (let i = 0; i < data.works.length; i++) {
+                if (data.works[i].cover_id === null) {
                     continue;
                 }
-                let img = document.createElement("img");
-                img.src =
+                let returnValue =
                     "https://covers.openlibrary.org/b/id/" +
-                    newData[i].cover_id +
+                    data.works[i].cover_id +
                     "-M.jpg";
-                console.log(img.src);
-                img.alt = "BookCover";
-                img.classList.add("images");
 
-                whatToAppend.appendChild(img);
+                Array.push(returnValue);
             }
+
         });
 }
-export {create_images}
+export { create_images }

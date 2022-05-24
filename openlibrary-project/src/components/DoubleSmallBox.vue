@@ -36,7 +36,6 @@ export default {
 
   methods: {
     TagSearch(searchValue) {
-      console.log("Hio");
       this.createImageStore.currentSearch = searchValue.toLowerCase();
       this.createImageStore.FindBookWithTagSearch();
     },

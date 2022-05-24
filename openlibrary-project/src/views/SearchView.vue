@@ -33,15 +33,18 @@
     </div>
     <hr class="xfactor" />
   </div>
+  <router-link to="/BookInfoView">
   <div>
     <BookWithTitleAndAuthorVue
-      v-for="book of createImageStore.books"
+      v-for="(book, index) of createImageStore.books"
+      @click="Testing(index)"
       :key="book"
       :bookCover="book.bookCovers"
       :bookAuthor="book.bookAuthors"
       :bookTitle="book.bookTitles"
     />
   </div>
+  </router-link>
 </template>
 
 <script>
@@ -60,10 +63,17 @@ export default {
   },
 
   methods: {
+    //Search funktion for searchbar att top
     TopSearch() {
       this.createImageStore.currentSearch = this.$refs.inputValue.value;
       this.createImageStore.FindBookWithSearch();
-    }
+    },
+    Testing(index) {
+      //If we have scrolldown to click and image we want to scroll back up to the top of the screen when we go to the information menu
+      window.scrollTo({top: 0})
+      this.createImageStore.index = index;
+      console.log(this.createImageStore.index)
+    },
   },
 
   components: { BookWithTitleAndAuthorVue },

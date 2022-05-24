@@ -1,6 +1,6 @@
 <template>
   <div class="SearchBar">
-    <div class="input-group mb-3" @input="YoYo()">
+    <div class="input-group mb-3" @input="ChangeInputValue()">
       <input
         id="myInput"
         type="text"
@@ -38,8 +38,9 @@ export default {
         inputValue: '',
     };
   },
+  //Whenever we change our text that searches we want to send those changes to the store so the store know what to search
   methods: {
-    YoYo() {
+    ChangeInputValue() {
         let inputVal = document.getElementById("myInput").value;
         this.inputValue = inputVal;
         this.createImageStore.currentSearch = this.inputValue;
